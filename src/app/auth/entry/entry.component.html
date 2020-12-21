@@ -1,0 +1,74 @@
+<head>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<div class="container logoHolder">
+    <div class="row">
+        <div class="col-md-12" style="text-align: center;">
+<img src="../../../assets//logo/newlogo.png" alt="">
+        </div>
+    </div>
+</div>
+<div class="container register">
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Register</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active text-align form-new" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <h3 class="register-heading">Login </h3>
+                    <div class="row register-form">
+                        <div class="col-md-12">
+                            <form method="post">
+                                <div class="form-group">
+                                    <input type="text" [(ngModel)]="loginEmail" name="LGform1_user" class="form-control" placeholder="Your Email *" value="" required=""/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" [(ngModel)]="loginPass" name="LGform1_pwd" class="form-control" placeholder="Your Password *" value="" required=""/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" name="LGform1" class="btnContactSubmit" value="Login" (click)="login()" />
+                                    <!-- <a href="ForgetPassword.php" class="btnForgetPwd" value="Login">Forget Password?</a> -->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade show text-align form-new" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <h3  class="register-heading">Register</h3>
+                    <div class="row register-form">
+                        <div class="col-md-12">
+                            <form [formGroup]="regForm" (submit)="checkForm()">
+                                <div class="form-group">
+                                    <input type="text" formControlName="regemail" class="form-control" placeholder="Enter valid Email *" value="" required="" #regemail />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" formControlName="firstName" class="form-control" placeholder="First Name *" value="" required="" #firstName />
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" formControlName="lastName" class="form-control" placeholder="Last Name *" value="" required="" #lastName/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" formControlName="regPass" class="form-control" placeholder="Enter 6 digit password *" value="" required="" #password/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" [disabled]="!regForm.valid" name="LGform2" class="btnContactSubmit" value="Register"  />
+                                    <!-- <a href="ForgetPassword.php" class="btnForgetPwd" value="Login">Forget Password?</a> -->
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

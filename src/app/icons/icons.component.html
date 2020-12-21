@@ -1,0 +1,223 @@
+
+<div class="main-content">
+  <!-- <div class="container-fluid">
+      <div class="card card-plain">
+          <div class="card-header card-header-danger">
+              <h4 class="card-title">Material Design Icons</h4>
+              <p class="card-category">Handcrafted by our friends from
+                  <a target="_blank" href="https://design.google.com/icons/">Google</a>
+              </p>
+          </div>
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="card-body">
+                      <div class="iframe-container d-none d-lg-block">
+                          <iframe src="https://design.google.com/icons/">
+                              <p>Your browser does not support iframes.</p>
+                          </iframe>
+                      </div>
+                      <div class="col-md-12 d-none d-sm-block d-md-block d-lg-none d-block d-sm-none text-center ml-auto mr-auto">
+                          <h5>The icons are visible on Desktop mode inside an iframe. Since the iframe is not working on Mobile and Tablets please visit the icons on their original page on Google. Check the
+                              <a href="https://design.google.com/icons/" target="_blank">Material Icons</a>
+                          </h5>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div> -->
+<!--Orders Table-->
+
+<div class="container-fluid">
+   
+
+    <!--##################################-->
+    <!--Foood Items Table-->
+    <div class="card">
+            <div class="card-header card-header-warning">
+                <h4 class="card-title ">ORDERS </h4>
+                <p class="card-category"> Here you can manage your orders</p>
+               
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead style="color: #640000!important;" class=" text-primary">
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                   User Name
+                                </th>
+                            <th>
+                               Total Items
+                            </th>
+                            <th>
+                                    Status
+                                </th>
+                            <th>
+                                Actions
+                            </th>
+                           
+                        </thead>
+                        <tbody>
+                             
+                         
+                            <tr >
+                                <td>
+                                  1
+                                </td>
+                                <td>
+                                    Frank
+                                </td>
+                                <td>
+                                    3
+                                </td>
+                                <td>
+                                   open
+                                </td>
+                                <td>
+                                      <i data-toggle="modal" data-target="#editModal"   style="font-size: 24px;color: #640000;" class="fa fa-pencil-square-o"></i>
+                                      &nbsp;
+                                      <i data-toggle="modal" data-target="#deleteModal"   style="font-size: 24px;color: red;" class="fa fa-minus-square-o"></i>
+
+                                </td>
+                               
+                            </tr>
+                         
+                         
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+</div>
+
+</div>
+
+
+
+
+
+      <!-- Edit Modal -->
+      <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Order Details</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+             <div class="row">
+                    <div class="col-md-6">
+                        
+                        <label for="itemname">User Name</label>
+              
+                          </div>
+
+                          <div class="col-md-6">
+                        
+                               <p>Frank Linton</p>
+                      
+                                  </div>
+             </div>
+             
+
+<!-- <div class="row">
+    <div  class="col-md-12">
+        
+            <mat-form-field  appearance="fill" *ngIf="categories">
+                    <mat-label >Category</mat-label>
+                    <select  [(ngModel)]="selectedCategory" matNativeControl required>
+                            <option style="display: none;"></option>
+
+                      <option *ngFor="let cat of categories" [ngValue]="cat">{{cat.cname}}</option>
+                    </select>
+                  </mat-form-field>
+    </div>
+</div> -->
+
+             <div class="row">
+                    <div class="col-md-6">
+                        
+                            <label for="totalitems">Total Items</label>
+                  
+                              </div>
+    
+                              <div class="col-md-6">
+                            
+                                   <p>3</p>
+                          
+                                      </div>
+             </div>
+             <div class="row">
+                    <div class="col-md-6">
+                        
+                            <label for="totalitems">Total Cost</label>
+                  
+                              </div>
+    
+                              <div class="col-md-6">
+                            
+                                   <p>150 $</p>
+                          
+                                      </div>
+             </div>
+
+             <div class="row">
+                    <div class="col-md-6">
+                        
+                            <label for="totalitems">Status</label>
+                  
+                              </div>
+    
+                              <div class="col-md-6">
+                            
+                                   <p>open</p>
+                          
+                                      </div>
+             </div>
+
+         
+             <div >
+                    <table class="table">
+                        <thead>
+<th>Item Name</th>
+<th>Quantity</th>
+                        </thead>
+                        <tbody style="border: 1px solid silver;">
+                            <tr >
+<td>Zinger</td>
+     <td>2</td>    
+    </tr>               </tbody>
+                        </table>
+                        </div>
+                        <div class="row">
+                                <div  class="col-md-12">
+                                    
+                                        <mat-form-field  appearance="fill" >
+                                                <mat-label >Change Status</mat-label>
+                                                <select   matNativeControl required>
+                                                        <option value="">Open</option>
+                                                        <option value="">Preparing</option>
+                                                        <option value="">Picked Up</option>
+                                                        <option value="">Delivered</option>
+                            
+                                                  <option *ngFor="let cat of categories" [ngValue]="cat">{{cat.cname}}</option>
+                                                </select>
+                                              </mat-form-field>
+                                </div>
+                            </div> 
+
+         
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary" >Close</button> -->
+              <button  style="background-color: #640000!important;" (click)="saveChange()" type="button" class="btn btn-warning" data-dismiss="modal">Save Changes</button>
+            </div>
+          </div>
+        </div>
+      </div>

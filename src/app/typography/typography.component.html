@@ -1,0 +1,362 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <!-- <div class="card">
+        <div class="card-header card-header-danger">
+            <h4 class="card-title">Material Dashboard Heading</h4>
+            <p class="card-category">Created using Roboto Font Family</p>
+        </div>
+        <div class="card-body">
+            <div id="typography">
+                <div class="card-title">
+                    <h2>Typography</h2>
+                </div>
+                <div class="row">
+                    <div class="tim-typo">
+                        <h1>
+                            <span class="tim-note">Header 1</span>The Life of Material Dashboard </h1>
+                    </div>
+                    <div class="tim-typo">
+                        <h2>
+                            <span class="tim-note">Header 2</span>The Life of Material Dashboard</h2>
+                    </div>
+                    <div class="tim-typo">
+                        <h3>
+                            <span class="tim-note">Header 3</span>The Life of Material Dashboard</h3>
+                    </div>
+                    <div class="tim-typo">
+                        <h4>
+                            <span class="tim-note">Header 4</span>The Life of Material Dashboard</h4>
+                    </div>
+                    <div class="tim-typo">
+                        <h5>
+                            <span class="tim-note">Header 5</span>The Life of Material Dashboard</h5>
+                    </div>
+                    <div class="tim-typo">
+                        <h6>
+                            <span class="tim-note">Header 6</span>The Life of Material Dashboard</h6>
+                    </div>
+                    <div class="tim-typo">
+                        <p>
+                            <span class="tim-note">Paragraph</span>
+                            I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.</p>
+                    </div>
+                    <div class="tim-typo">
+                        <span class="tim-note">Quote</span>
+                        <blockquote class="blockquote">
+                            <p>
+                                I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that’s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.
+                            </p>
+                            <small>
+                                Kanye West, Musician
+                            </small>
+                        </blockquote>
+                    </div>
+                    <div class="tim-typo">
+                        <span class="tim-note">Muted Text</span>
+                        <p class="text-muted">
+                            I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...
+                        </p>
+                    </div>
+                    <div class="tim-typo">
+                        <span class="tim-note">Primary Text</span>
+                        <p class="text-primary">
+                            I will be the leader of a company that ends up being worth billions of dollars, because I got the answers... </p>
+                    </div>
+                    <div class="tim-typo">
+                        <span class="tim-note">Info Text</span>
+                        <p class="text-info">
+                            I will be the leader of a company that ends up being worth billions of dollars, because I got the answers... </p>
+                    </div>
+                    <div class="tim-typo">
+                        <span class="tim-note">Success Text</span>
+                        <p class="text-success">
+                            I will be the leader of a company that ends up being worth billions of dollars, because I got the answers... </p>
+                    </div>
+                    <div class="tim-typo">
+                        <span class="tim-note">Warning Text</span>
+                        <p class="text-warning">
+                            I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...
+                        </p>
+                    </div>
+                    <div class="tim-typo">
+                        <span class="tim-note">Danger Text</span>
+                        <p class="text-danger">
+                            I will be the leader of a company that ends up being worth billions of dollars, because I got the answers... </p>
+                    </div>
+                    <div class="tim-typo">
+                        <h2>
+                            <span class="tim-note">Small Tag</span>
+                            Header with small subtitle
+                            <br>
+                            <small>Use "small" tag for the headers</small>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <!--##################################-->
+    <!--Foood Items Table-->
+    <div class="card">
+            <div class="card-header card-header-warning">
+                <h4 class="card-title ">Menu Items  <i data-toggle="modal" data-target="#exampleModal" style="float: right;font-size: 44px;" class="fa fa-plus-circle"></i></h4>
+                <p class="card-category"> Here you can create,edit,delete menu items for your restaurant</p>
+               
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead style="color: #640000!important;" class=" text-primary">
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                   Image
+                                </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                    Ingridients
+                                </th>
+                            <th>
+                                Actions
+                            </th>
+                           
+                        </thead>
+                        <tbody>
+                             
+                         
+                            <tr *ngFor="let x of menu;let i=index">
+                                <td>
+                                   {{i+1}}
+                                </td>
+                                <td>
+                                    <img style="width: 100px;height: 100px;" [src]="x.image" alt="">
+                                </td>
+                                <td>
+                                    {{x?.name}}
+                                </td>
+                                <td>
+                                    {{x?.ingridients}}
+                                </td>
+                                <td>
+                                      <i data-toggle="modal" data-target="#editModal" (click)="editStart(x)"  style="font-size: 24px;color: #640000;" class="fa fa-pencil-square-o"></i>
+                                      &nbsp;
+                                      <i data-toggle="modal" data-target="#deleteModal" (click)="deleteItem(x)"  style="font-size: 24px;color: red;" class="fa fa-minus-square-o"></i>
+
+                                </td>
+                               
+                            </tr>
+                         
+                         
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+</div>
+
+
+
+
+<!-- Create Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Create Menu Item</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+             <div class="row">
+                    <div class="col-md-12">
+                            <mat-form-field class="example-full-width" >
+                                <input [(ngModel)]="itemName" name="itemName" matInput placeholder="Enter Item Name" >
+                              </mat-form-field>
+                          </div>
+             </div>
+             
+
+<div class="row">
+    <div  class="col-md-12">
+        
+            <mat-form-field  appearance="fill" *ngIf="categories">
+                    <mat-label >Category</mat-label>
+                    <select  [(ngModel)]="selectedCategory" matNativeControl required>
+                            <option style="display: none;"></option>
+
+                      <option *ngFor="let cat of categories" [ngValue]="cat">{{cat.cname}}</option>
+                    </select>
+                  </mat-form-field>
+    </div>
+</div>
+
+             <div class="row">
+                    <div class="col-md-12">
+                            <mat-form-field class="example-full-width">
+                                <textarea [(ngModel)]="itemIngredients" name="itemName" matInput placeholder="Enter Ingridients" ></textarea>
+                              </mat-form-field>
+                          </div>
+             </div>
+             <div class="row">
+                    <div class="col-md-12">
+                            <mat-form-field class="example-full-width">
+                                <input type="number" [(ngModel)]="preperationtime" name="preperationTime" matInput placeholder="Enter Preperation Time in minutes" >
+                              </mat-form-field>
+                          </div>
+             </div>
+
+             <div class="row">
+                    <div class="col-md-12">
+                            <mat-form-field class="example-full-width">
+                                <input  [(ngModel)]="shortDescription" name="shortDescription" matInput placeholder="Enter Short Description" >
+                              </mat-form-field>
+                          </div>
+             </div>
+
+             <div class="row">
+                    <div class="col-md-12">
+                            <mat-form-field class="example-full-width">
+                                <input type="number"  [(ngModel)]="price" name="price" matInput placeholder="Enter Price $" >
+                              </mat-form-field>
+                          </div>
+             </div>
+
+             <div class="row">
+                    <div style="text-align: center;" class="col-md-12">
+                        <label style="float: left;" for="">Add Image</label>
+                                    <i *ngIf="downloadableURL === ''"  style="font-size: 120px;" class="fa fa-picture-o"></i>
+                                    <img style="width: 120px;height: 120px;" *ngIf="downloadableURL !== ''" [src]="downloadableURL" alt="">
+                                    <input type="file" (input)="onFileChanged($event)" accept=".png,.jpg" class="btn btn-danger btn-round" />
+
+                                <!-- <input  [(ngModel)]="shortDescription" name="shortDescription" matInput placeholder="Enter Short Description" > -->
+                          </div>
+             </div>
+            </div>
+            <div class="modal-footer">
+              <!-- <button type="button" class="btn btn-secondary" >Close</button> -->
+              <button  style="background-color: #640000!important;" (click)="addFood()" type="button" class="btn btn-warning" data-dismiss="modal">Save Menu Item</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Edit Modal -->
+      <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Edit Menu Item</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                 <div class="row">
+                        <div class="col-md-12">
+                                <mat-form-field class="example-full-width" >
+                                    <input [(ngModel)]="itemName" name="itemName" matInput placeholder="Enter Item Name" >
+                                  </mat-form-field>
+                              </div>
+                 </div>
+                 
+    
+    <!-- <div class="row">
+        <div  class="col-md-12">
+            
+                <mat-form-field  appearance="fill" *ngIf="categories">
+                        <mat-label >Category</mat-label>
+                        <select  [(ngModel)]="selectedCategory" matNativeControl required>
+                                <option style="display: none;"></option>
+    
+                          <option *ngFor="let cat of categories" [ngValue]="cat">{{cat.cname}}</option>
+                        </select>
+                      </mat-form-field>
+        </div>
+    </div> -->
+    
+                 <div class="row">
+                        <div class="col-md-12">
+                                <mat-form-field class="example-full-width">
+                                    <textarea [(ngModel)]="itemIngredients" name="itemName" matInput placeholder="Enter Ingridients" ></textarea>
+                                  </mat-form-field>
+                              </div>
+                 </div>
+                 <div class="row">
+                        <div class="col-md-12">
+                                <mat-form-field class="example-full-width">
+                                    <input type="number" [(ngModel)]="preperationtime" name="preperationTime" matInput placeholder="Enter Preperation Time in minutes" >
+                                  </mat-form-field>
+                              </div>
+                 </div>
+    
+                 <div class="row">
+                        <div class="col-md-12">
+                                <mat-form-field class="example-full-width">
+                                    <input  [(ngModel)]="shortDescription" name="shortDescription" matInput placeholder="Enter Short Description" >
+                                  </mat-form-field>
+                              </div>
+                 </div>
+    
+                 <div class="row">
+                        <div class="col-md-12">
+                                <mat-form-field class="example-full-width">
+                                    <input type="number"  [(ngModel)]="price" name="price" matInput placeholder="Enter Price $" >
+                                  </mat-form-field>
+                              </div>
+                 </div>
+    
+                 <div class="row">
+                        <div style="text-align: center;" class="col-md-12">
+                            <label style="float: left;" for="">Add Image</label>
+                                        <i *ngIf="downloadableURL === ''"  style="font-size: 120px;" class="fa fa-picture-o"></i>
+                                        <img style="width: 120px;height: 120px;" *ngIf="downloadableURL !== ''" [src]="downloadableURL" alt="">
+                                        <input type="file" (input)="onFileChanged($event)" accept=".png,.jpg" class="btn btn-danger btn-round" />
+    
+                                    <!-- <input  [(ngModel)]="shortDescription" name="shortDescription" matInput placeholder="Enter Short Description" > -->
+                              </div>
+                 </div>
+                </div>
+                <div class="modal-footer">
+                  <!-- <button type="button" class="btn btn-secondary" >Close</button> -->
+                  <button  style="background-color: #640000!important;" (click)="saveChange()" type="button" class="btn btn-warning" data-dismiss="modal">Save Changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    
+
+
+             <!--Delete Modal-->
+
+      <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Delete Food</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                 <div class="row">
+                        <div class="col-md-12">
+                             
+<p for="">Are you sure you want to delete this item?</p>                                 
+                              </div>
+                 </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-warning"  data-dismiss="modal" >No</button>
+                  <button (click)="delete()" type="button" class="btn btn-danger" data-dismiss="modal">Yes</button>
+                </div>
+              </div>
+            </div>
+          </div>
