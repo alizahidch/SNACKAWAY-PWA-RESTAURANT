@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,NgZone} from '@angular/core';
 import { FormBuilder, Validators} from '@angular/forms';
 import {AuthService} from '../../shared/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
@@ -16,7 +16,7 @@ export class EntryComponent implements OnInit {
 loginEmail;
 loginPass;
 
-  constructor(private formBuilder: FormBuilder,private auth:AuthService,private toastr: ToastrService,private router:Router) { }
+  constructor(private formBuilder: FormBuilder,private auth:AuthService,private toastr: ToastrService,private router:Router,public ngZone: NgZone) { }
 
   ngOnInit(): void {
 
@@ -58,7 +58,7 @@ loginPass;
    this.auth.SetUserData(demoObj).then(res1=>{
     this.auth.SendVerificationMail();
     alert("account created");
-    this.router.navigateByUrl("entry")
+    this.router.navigateByUrl("#")
    }).catch(err1=>alert(err1))
 
     }).catch(err=>{
@@ -70,13 +70,26 @@ loginPass;
 
   login(){
     console.log("login method called")
-this.auth.SignIn(this.loginEmail,this.loginPass).then(res=>{
-  this.showSuccess();
-  this.router.navigate(['user-profile']);
-
-}).catch(err=>{
-this.showError();
+this.auth.SignIn(this.loginEmail,this.loginPass).then((result) => {
+  if (result.user.emailVerified !== true) {
+    this.auth.SendVerificationMail();
+    window.alert('Please validate your email address. Kindly check your inbox.');
+  } else {
+    this.ngZone.run(() => {
+      this.router.navigate(['user-profile']);
+    });
+  }
+  // this.SetUserData(result.user);
+}).catch((error) => {
+  window.alert(error.message)
 })
+// then(res=>{
+//   this.showSuccess();
+//   this.router.navigate(['user-profile']);
+
+// }).catch(err=>{
+// this.showError();
+// })
 
   }
 

@@ -20,9 +20,8 @@ var transporter = nodemailer.createTransport({
           from: `admin@snackaway.com`,
           to: snap.data().email,
           subject: 'SNACKAWAY ORDER UPDATES',
-          html: `<h1>NEW ORDER</h1>
-          
-                              <p>
+          html: `
+                             <p>
                                  <b></b>${snap.data().message}<br>
                               </p>
                               <br>

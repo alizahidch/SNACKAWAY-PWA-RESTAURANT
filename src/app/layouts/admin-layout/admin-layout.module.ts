@@ -19,6 +19,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 import {MatDialogModule} from '@angular/material/dialog';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatRippleModule,
     MatFormFieldModule,
     MatInputModule,
+    NgxMaterialTimepickerModule,
     MatSelectModule,
     MatTooltipModule,
     MatDialogModule

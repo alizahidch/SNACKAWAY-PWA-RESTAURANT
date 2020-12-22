@@ -388,7 +388,7 @@
               <div class="card">
                   <div class="card-header card-header-warning">
                       <h4 class="card-title">Notifications</h4>
-                      <p class="card-category">New notifications today</p>
+                      <p class="card-category">Notifications to and from your restaurant</p>
                   </div>
                   <div class="card-body table-responsive">
                       <table class="table table-hover">
@@ -397,26 +397,12 @@
                               <th>Descripton</th>
                           </thead>
                           <tbody>
-                              <tr>
-                                  <td>1</td>
-                                  <td>New order received from Dakota Rice</td>
+                              <tr *ngFor="let x of notifications;let i=index">
+                                  <td>{{i+1}}</td>
+                                  <td>{{x?.message}}</td>
                            
                               </tr>
-                              <tr>
-                                  <td>2</td>
-                                  <td>New order received from Minerva Hooper</td>
-                              
-                              </tr>
-                              <tr>
-                                  <td>3</td>
-                                  <td>New order received from Sage Rodriguez</td>
                          
-                              </tr>
-                              <tr>
-                                  <td>4</td>
-                                  <td>New order received from Philip Chaney</td>
-                              
-                              </tr>
                           </tbody>
                       </table>
                   </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+import {DataService} from '../shared/services/data.service'
 
 @Component({
   selector: 'app-dashboard',
@@ -7,8 +8,14 @@ import * as Chartist from 'chartist';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+userData:any=[];
+notifications:any=[];
+  constructor( private hook:DataService) {
 
-  constructor() { }
+    this.userData = JSON.parse(localStorage.getItem('user'));
+
+
+   }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -67,7 +74,10 @@ export class DashboardComponent implements OnInit {
   };
   ngOnInit() {
 
-   
+   this.hook.fetchNotifcations(this.userData.uid).subscribe(res=>{
+     this.notifications=res;
+     console.log(this.notifications);
+   })
 
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 

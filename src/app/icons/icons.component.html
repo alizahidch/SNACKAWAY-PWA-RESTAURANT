@@ -101,7 +101,7 @@
 
 
       <!-- Edit Modal -->
-      <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" >
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -166,6 +166,19 @@
                           
                                       </div>
              </div>
+             <div class="row">
+                    <div class="col-md-6">
+                        
+                            <label for="totalitems">Pickup Time</label>
+                  
+                              </div>
+    
+                              <div class="col-md-6">
+                            
+                                   <p>{{selectedOrder?.deliveryTime}} </p>
+                          
+                                      </div>
+             </div>
 
              <div class="row">
                     <div class="col-md-6">
@@ -186,12 +199,16 @@
                     <table class="table">
                         <thead>
 <th>Item Name</th>
+<th>addons</th>
 <th>Quantity</th>
                         </thead>
                         <tbody style="border: 1px solid silver;">
-                            <tr >
-<td>Zinger</td>
-     <td>2</td>    
+                            <tr *ngFor="let item of selectedOrder?.items">
+<td>{{item?.mainItem?.name}}</td>
+<td *ngIf="item?.addons">
+    <small *ngFor="let ad of item.addons">{{ad.name}}</small>
+</td>
+     <td>{{item?.mainItem?.counter}}</td>    
     </tr>               </tbody>
                         </table>
                         </div>
@@ -200,23 +217,36 @@
                                     
                                         <mat-form-field  appearance="fill" >
                                                 <mat-label >Change Status</mat-label>
-                                                <select   matNativeControl required>
-                                                        <option value="">Open</option>
+                                                <select [(ngModel)]="editCategory"  matNativeControl required>
+                                                    <option *ngFor="let x of status;let i=index" [value]="x?.value">{{x?.name}}</option>
+                                                        <!-- <option value="">Open</option>
+                                                        <option value="">Accepted</option>
+                                                        <option value="">Rejected</option>
                                                         <option value="">Preparing</option>
                                                         <option value="">Picked Up</option>
-                                                        <option value="">Delivered</option>
+                                                        <option value="">Finished</option> -->
                             
-                                                  <option *ngFor="let cat of categories" [ngValue]="cat">{{cat.cname}}</option>
+                                                  <!-- <option *ngFor="let cat of categories" [ngValue]="cat">{{cat.cname}}</option> -->
                                                 </select>
                                               </mat-form-field>
                                 </div>
                             </div> 
 
+                            <div class="row">
+                                <div class="col-md-12">
+                                            <mat-label>Change Delivery Time</mat-label>
+
+                                        <div  class="ngx-timepicker-field-example">
+                                                <ngx-timepicker-field [(ngModel)]="selectedTime"   [defaultTime]="'selectedOrder?.deliveryTime'"></ngx-timepicker-field>
+                                            </div>
+                                            
+                                </div>
+                            </div>
          
             </div>
             <div class="modal-footer">
               <!-- <button type="button" class="btn btn-secondary" >Close</button> -->
-              <button  style="background-color: #640000!important;" (click)="saveChange()" type="button" class="btn btn-warning" data-dismiss="modal">Save Changes</button>
+              <button  style="background-color: #640000!important;" (click)="saveChange()" type="button" class="btn btn-warning" data-dismiss="modal">Update Order</button>
             </div>
           </div>
         </div>

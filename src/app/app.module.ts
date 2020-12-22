@@ -36,6 +36,8 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
 import {MatDialogModule} from '@angular/material/dialog';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+
 
 @NgModule({
   imports: [
@@ -48,6 +50,7 @@ import { AngularFireMessagingModule } from '@angular/fire/messaging';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    NgxMaterialTimepickerModule,
     ComponentsModule,
     RouterModule,
     ServiceWorkerModule.register('combined-sw.js', {

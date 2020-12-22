@@ -61,8 +61,27 @@ return this.afs.collection("food").doc(pdata.fid).update(pdata);
 
 
 fetchOrders(uid){
-  return this.afs.collection('orders', ref => ref.where('rid', '==', uid)).valueChanges();
+  return this.afs.collection('orders', ref => ref.where('rid', '==', uid)).snapshotChanges();
 }
+
+
+updateOrder(pdata){
+  return this.afs.collection("orders").doc(pdata.id).update(pdata);
+
+}
+
+
+createNotification(notf){
+  return this.afs.collection("notifications").add(notf);
+
+}
+
+
+fetchNotifcations(uid){
+  return this.afs.collection('notifications', ref => ref.where('rid', '==', uid)).valueChanges();
+
+}
+
 
 
 }

@@ -1,6 +1,6 @@
 import { Injectable,NgZone } from '@angular/core';
 import { User } from "../services/user";
-import { firebase } from '@firebase/app';
+import * as firebase from 'firebase/app';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
@@ -32,10 +32,18 @@ export class AuthService {
 
 
 // Sign in with email/password
+// SignIn(email, password) {
+//   return this.afAuth.signInWithEmailAndPassword(email, password);
+ 
+   
+// }
+
 SignIn(email, password) {
   return this.afAuth.signInWithEmailAndPassword(email, password);
-   
+
 }
+
+
 
 // Sign up with email/password
 SignUp(email, password) {

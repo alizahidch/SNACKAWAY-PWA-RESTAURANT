@@ -13,8 +13,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/menu-categories', title: 'Menu Categories',  icon:'content_paste', class: '' },
     { path: '/menu-items', title: 'Menu Items',  icon:'library_books', class: '' },
     { path: '/orders', title: 'Orders',  icon:'content_paste', class: '' },
-    { path: '/reviews', title: 'Reviews',  icon:'rate_review', class: '' },
-    { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
+    // { path: '/reviews', title: 'Reviews',  icon:'rate_review', class: '' },
+    // { path: '/notifications', title: 'Notifications',  icon:'notifications', class: '' },
     // { path: '/upgrade', title: 'Upgrade to PRO',  icon:'unarchive', class: 'active-pro' },
 ];
 
