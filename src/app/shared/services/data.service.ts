@@ -60,4 +60,9 @@ return this.afs.collection("food").doc(pdata.fid).update(pdata);
 }
 
 
+fetchOrders(uid){
+  return this.afs.collection('orders', ref => ref.where('rid', '==', uid)).valueChanges();
+}
+
+
 }

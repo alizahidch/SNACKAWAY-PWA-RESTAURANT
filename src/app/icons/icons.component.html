@@ -63,23 +63,23 @@
                         <tbody>
                              
                          
-                            <tr >
+                            <tr *ngFor="let x of orders;let i=index">
                                 <td>
-                                  1
+                                  {{i+1}}
                                 </td>
                                 <td>
-                                    Frank
+                                    {{x.uname}}
                                 </td>
                                 <td>
-                                    3
+                                    {{x.totalitems}}
                                 </td>
                                 <td>
-                                   open
+                                   {{x.status}}
                                 </td>
                                 <td>
-                                      <i data-toggle="modal" data-target="#editModal"   style="font-size: 24px;color: #640000;" class="fa fa-pencil-square-o"></i>
+                                      <i (click)="editOrder(x)" data-toggle="modal" data-target="#editModal"   style="font-size: 24px;color: #640000;" class="fa fa-pencil-square-o"></i>
                                       &nbsp;
-                                      <i data-toggle="modal" data-target="#deleteModal"   style="font-size: 24px;color: red;" class="fa fa-minus-square-o"></i>
+                                      <i (click)="editOrder(x)" data-toggle="modal" data-target="#deleteModal"   style="font-size: 24px;color: red;" class="fa fa-minus-square-o"></i>
 
                                 </td>
                                
@@ -120,7 +120,7 @@
 
                           <div class="col-md-6">
                         
-                               <p>Frank Linton</p>
+                               <p>{{selectedOrder?.uname}}</p>
                       
                                   </div>
              </div>
@@ -149,7 +149,7 @@
     
                               <div class="col-md-6">
                             
-                                   <p>3</p>
+                                   <p>{{selectedOrder?.totalitems}}</p>
                           
                                       </div>
              </div>
@@ -162,7 +162,7 @@
     
                               <div class="col-md-6">
                             
-                                   <p>150 $</p>
+                                   <p>{{selectedOrder?.toalcost}} $</p>
                           
                                       </div>
              </div>
@@ -176,7 +176,7 @@
     
                               <div class="col-md-6">
                             
-                                   <p>open</p>
+                                   <p>{{selectedOrder?.status}}</p>
                           
                                       </div>
              </div>

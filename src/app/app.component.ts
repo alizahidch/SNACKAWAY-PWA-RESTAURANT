@@ -41,7 +41,7 @@ listenForMessages() {
 requestPermission() {
   this.messagingService.requestPermission().subscribe(
     async token => {
-   alert(token)
+  //  alert(token)
       // const toast = await this.toastCtrl.create({
       //   message: 'Got your token',
       //   duration: 2000
